@@ -19,8 +19,7 @@ $result = $conn->query($sql);
 <style>
     body{
         margin-top:100px;
-        margin-left:350px;
-        width: 55%;
+        width: auto;
         border: 3px solid gray;
         padding: 10px;
     }
@@ -72,12 +71,17 @@ $result = $conn->query($sql);
                 <th>Email</th>
                 <th>Password</th>
                 <th>Gender</th>
+                <th>State</th>
+                <th>Address</th>
+                <th>Agreement</th>
+                <th>Image</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php if($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
+                   
             ?>
             <tr>
                 <td><?php echo htmlspecialchars($row['Id']); ?></td>
@@ -86,6 +90,10 @@ $result = $conn->query($sql);
                 <td><?php echo htmlspecialchars($row['Email']); ?></td>
                 <td><?php echo htmlspecialchars($row['Password']); ?></td>
                 <td><?php echo htmlspecialchars($row['Gender']); ?></td>
+                <td><?php echo htmlspecialchars($row['State']); ?></td>
+                <td><?php echo htmlspecialchars($row['Address']); ?></td>
+                <td><?php echo htmlspecialchars($row['Agreement']); ?></td>
+                <td><img src="files/<?php echo htmlspecialchars($row['Image']); ?>" style="width:150px; height:100px;" alt=""></td>
                 <td>
                     <a class="btn btn-info" href="update.php?Id=<?php echo $row['Id']; ?>">Edit</a>
                     &nbsp;<a class="btn btn-danger" href="delete.php?Id=<?php echo $row['Id']; ?>">Delete</a>
